@@ -1,22 +1,20 @@
 import React from "react";
 
 function TodoItem(props) {
-  const completedStyle = {
-    fontStyle: "italic",
-    color: "#cdcdcd",
-    textDecoration: "line-through"
-  };
-
+  // const completedStyle = {
+  //   fontStyle: "italic",
+  //   color: "#cdcdcd",
+  //   textDecoration: "line-through"
+  // };
+  function handleClick() {
+    props.delete(props.id);
+  }
   return (
     <div className="todo-item">
-      <input
-        type="checkbox"
-        checked={props.item.completed}
-        onChange={() => props.handleChange(props.item.id)}
-      />
-      <p style={props.item.completed ? completedStyle : null}>
-        {props.item.text}
-      </p>
+      <div>
+        <p>{props.content}</p>
+      </div>
+      <button onClick={handleClick}>Delete</button>
     </div>
   );
 }
